@@ -12,9 +12,9 @@ export class Axios {
         };
     }
 
-    async get() {
+    async get(route: string, params: any) {
         return new Promise((resolve) => {
-            console.log('called a backend for get form');
+            console.log('called a backend for get form on ' + route);
             setTimeout(() => {
                 resolve(this.data);
             }, 1000);

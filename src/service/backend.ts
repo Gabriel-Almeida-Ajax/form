@@ -5,8 +5,8 @@ export class Backend {
   constructor(public instance: Axios) {
     makeAutoObservable(this);
   }
-  getForm() {
-    console.log('call a backend for get data');
+  getForm(route: string, params: any = {}) {
+    console.log('call a backend for get data ' + route);
 
     this.instance.data.result = [
       {
@@ -16,7 +16,9 @@ export class Backend {
       }
     ]
 
-    return this.instance.get();
+    return this.instance.get(route, {
+      params
+    });
   }
   save(route: string, data: any) {
     return this.instance.post(route, data);
